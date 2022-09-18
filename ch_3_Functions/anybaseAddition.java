@@ -22,7 +22,8 @@ public class anybaseAddition {
             int d2 = n2 % 10;
             n1 = n1 / 10;
             n2 = n2 / 10;
-            int d = d1 + d2 + c;
+            int d=0;
+            d = d1 + d2 + c;
             c = d / b;
             d = d % b;
             rv=rv+d*p;
