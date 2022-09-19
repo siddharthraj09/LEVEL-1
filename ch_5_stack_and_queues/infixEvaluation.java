@@ -35,6 +35,7 @@ public class infixEvaluation {
                     int opv = operation(v1, v2, optor);
                     opnds.push(opv);
                 }
+                optors.pop();
             } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
                 while (optors.size() > 0 && optors.peek() != '(' && precedence(ch) < precedence(optors.peek())) {
                     char optor = optors.pop();
@@ -45,15 +46,15 @@ public class infixEvaluation {
                 }
                 optors.push(ch);
             }
-            while (optors.size() != 0) {
-                char optor = optors.pop();
-                int v2 = opnds.pop();
-                int v1 = opnds.pop();
-                int opv = operation(v1, v2, optor);
-                opnds.push(opv);
-            }
-            System.out.println(opnds.peek());
         }
+        while (optors.size() != 0) {
+            char optor = optors.pop();
+            int v2 = opnds.pop();
+            int v1 = opnds.pop();
+            int opv = operation(v1, v2, optor);
+            opnds.push(opv);
+        }
+        System.out.println(opnds.peek());
 
         // code
     }

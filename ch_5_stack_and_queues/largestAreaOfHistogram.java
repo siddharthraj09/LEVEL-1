@@ -24,7 +24,7 @@ public class largestAreaOfHistogram {
         Stack <Integer> st = new Stack<>();
         st.push(a.length-1);
         rb[a.length -1] = a.length;
-        for (int i = a.length-2; i >=0; i++) {
+        for (int i = a.length-2; i >=0; i--) {
             while(st.size() >0 && a[i] < a[st.peek()]){
                 st.pop();
             }
@@ -51,7 +51,7 @@ public class largestAreaOfHistogram {
                 lb[i]=-1;
             }
             else{
-                rb[i] = st.peek();
+                lb[i] = st.peek();
             }
             st.push(i);
         }
@@ -65,5 +65,6 @@ public class largestAreaOfHistogram {
             }
             
         }
+        System.out.println(maxArea);
     }
 }
